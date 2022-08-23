@@ -5,6 +5,21 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
+/* Basic formatting */
 * {
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Classes */
+.gradient-bg {
+  background: linear-gradient(
+    133.88deg,
+    #835ec2 2.96%,
+    #d65db1 16.74%,
+    #fe6f91 34.11%,
+    #ff9570 48.28%,
+    #fec75f 87.09%,
+    #f9f771 100%
+  );
 }

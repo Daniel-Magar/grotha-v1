@@ -1,10 +1,14 @@
 import React from "react";
 import Pencil from "../../assets/img/landingPage/heroImage.png";
 import heroLogo from "../../assets/img/landingPage/heroGrothaaLogo.png";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="h-screen bg-black text-white flex justify-center items-center">
+    <div
+      id="hero-section"
+      className="h-screen bg-black text-white flex justify-center items-center"
+    >
       {/* landing contents */}
       <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between w-[80%] items-center  ">
         <div className=" flex-[0.4]">
@@ -25,9 +29,11 @@ const HeroSection = () => {
           </p>
 
           {/* CTA */}
-          <div className=" p-3 px-10 xl:p-5 xl:px-12 w-fit rounded-3xl text-lg md:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl mx-auto font-bold bg-gradient-to-r from-[#ffc700] to-[#eb08ff] text-black active:scale-95 transition cursor-pointer">
-            Join Grothaa
-          </div>
+          <Link to="/join-grothaa">
+            <div className=" p-3 px-10 xl:p-5 xl:px-12 w-fit rounded-3xl text-lg md:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl mx-auto font-bold bg-gradient-to-r from-[#ffc700] to-[#eb08ff] text-black active:scale-95 transition cursor-pointer">
+              Join Grothaa
+            </div>
+          </Link>
         </div>
       </div>
     </div>
