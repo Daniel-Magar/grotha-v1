@@ -45,3 +45,28 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #fbd109;
 }
+
+.step4 {
+  border: 1px solid #ccc;
+  width: 78%;
+  padding: 6px;
+  margin: 0 0 10px;
+  display: block;
+  background: rgba(49, 49, 49, 0.8);
+  border: 1px solid #828282;
+  border-radius: 6px;
+}
+.dd label input {
+  margin-right: 1rem;
+}
+
+.step4:hover {
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.step4 > input[type="checkbox"]:checked + label {
+  background-color: transparent;
+  border: 1px solid white;
+}
