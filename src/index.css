@@ -70,3 +70,14 @@
   background-color: transparent;
   border: 1px solid white;
 }
+
+.custCheckbox {
+  background: rgba(49, 49, 49, 0.8);
+  border: 1px solid #828282;
+  border-radius: 8px;
+}
+.custCheckbox_letter {
+  background: #000000;
+  border: 1px solid #767676;
+  border-radius: 4px;
+}
