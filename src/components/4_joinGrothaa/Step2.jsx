@@ -3,16 +3,20 @@ import React from "react";
 const Step2 = ({ formData, setFormData, setStep }) => {
   return (
     <div className="w-full md:ml-[8rem] lg:ml-[10rem]">
-      <div>
-        <p className="text-[20px] md:text-[23px] font-semibold">
-          2. Brief description of your company (500-1000 char)*This question is
-          required. *
-        </p>
-        <p className="text-[18px] text-[#ACACAC]">
+      <div className="flex justify-start items-start gap-8">
+        <div className="flex flex-col">
+          <div className="text-[20px] md:text-[23px] font-semibold"> 2.</div>
+          <div className="text-black">1</div>
+        </div>
+        
+        <div className="flex flex-col justify-start items-center">
+          <div>
+            <p className="text-[20px] md:text-[23px] font-semibold"> Brief description of your company (500-1000 char)*This question is
+          required. *</p>
+          <p className="text-[18px] text-[#ACACAC]">
           Separate names with a comma
         </p>
-      </div>
-      <div className="py-10">
+        <div className="py-10">
         <input
           type="text"
           className="w-full md:w-[96%] bg-transparent outline-none border border-b-white border-l-0 border-t-0 border-r-0 text-[19px]"
@@ -37,6 +41,11 @@ const Step2 = ({ formData, setFormData, setStep }) => {
           Press <b> Enter </b>
         </div>
       </div>
+          </div>
+          <div className="text-black">2</div>
+        </div>
+      </div>   
+     
     </div>
   );
 };

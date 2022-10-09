@@ -33,12 +33,45 @@ const Step4 = ({ formData, setFormData, setStep }) => {
 
     setUsers(selectedData);
   }
+
+ //TO get all indexes from users array which are isChecked === true and to display the those array
+ const [groupUsers, setGroupUsers] = useState([]);
+ useEffect(() => {
+   var newArray = users.filter(function (el) {
+     return el.isChecked === true;
+   });
+   console.log(newArray);
+   setGroupUsers(newArray);
+ }, [users]);
+
+ useEffect(() => {
+   console.log("grp users");
+   console.log(groupUsers);
+ }, [groupUsers]);
+
+
   useEffect(() => {
     setFinalData((currData) => currData);
     console.log(finalData);
   }, [users, formData]);
+
+
+    // save a group
+    const [groupOfuser, setGroupOfUser] = useState([]);
+
+    const save = (e) => {
+      let selectUsers = groupUsers.map((user) => {
+        return { ...user };
+      });
+      setGroupOfUser(selectUsers);
+      e.preventDefault();
+      let tempUser = users.map((user) => {
+        return { ...user, isChecked: false };
+      });
+      setUsers(tempUser);
+    };
   return (
-    <div className="w-full md:ml-[8rem] lg:ml-[10rem]">
+    <div className="w-full md:ml-[8rem] lg:ml-[10rem] border">
       <div>
         <p className="text-[20px] md:text-[23px] font-semibold">
           4. Company Business Model *
@@ -46,6 +79,7 @@ const Step4 = ({ formData, setFormData, setStep }) => {
         <p className="text-[18px] text-[#ACACAC]">Make between 1 to 2 choice</p>
       </div>
       <div className="py-10 flex flex-col gap-1 md:gap-5  dd ">
+        
         {users.map((data, index) => (
           <div>
             <div
