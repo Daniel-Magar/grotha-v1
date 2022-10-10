@@ -1,7 +1,7 @@
 import React from "react";
 import prev from "../../assets/img/joinGrotha/prev.png";
 import next from "../../assets/img/joinGrotha/next.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -12,6 +12,7 @@ import Step7 from "./Step7";
 import Step8 from "./Step8";
 import Step9 from "./Step9";
 import Step10 from "./Step10";
+import emailjs from "@emailjs/browser";
 
 const JoinGrothaaPage = () => {
   const [step, setStep] = useState(0);
@@ -27,6 +28,50 @@ const JoinGrothaaPage = () => {
     "Step9",
     "Step10",
   ];
+
+  const [formData, setFormData] = useState({
+    // step1: {
+    //   name: "John Doe",
+    //   mobile_no: "7898787676",
+    //   emial: "abc@gmail.com",
+    //   company: "abc",
+    // },
+    name: "",
+    company_descp: "",
+    socialnetwork: "",
+    company_business_model: "",
+    company_business_model2: "",
+    revenue_stream: "",
+    month_revenue: "",
+    funding_details: "",
+    competitor: "",
+    finalized: "",
+  });
+  useEffect(() => {
+    console.log("From All", formData);
+  }, [formData]);
+
+  // const form = useRef();
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs
+  //     .sendForm(
+  //       "service_nm433gh",
+  //       "template_eqwgxol",
+  //       form.current,
+  //       "q6yVnf9mQo16AMr9k"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  //   e.target.reset();
+  // };
 
   const PageDisplay = () => {
     if (step == 0) {
@@ -117,43 +162,36 @@ const JoinGrothaaPage = () => {
           setFormData={setFormData}
           step={step}
           setStep={setStep}
+          // sendEmail={sendEmail}
         />
       );
     }
   };
 
-  const [formData, setFormData] = useState({
-    // step1: {
-    //   name: "John Doe",
-    //   mobile_no: "7898787676",
-    //   emial: "abc@gmail.com",
-    //   company: "abc",
-    // },
-    name: "",
-    company_descp: "",
-    company_business_model: "",
-    company_business_model2: "",
-    revenue_stream: "",
-    month_revenue: "",
-    funding_details: "",
-    competitor: "",
-    finalized: "",
-  });
   return (
     <div className="bg-black text-white h-screen flex justify-center items-center text-3xl  relative">
       <div className=" w-[75%] sm:w-[70%] md:w-[85%] flex flex-col ">
         <div className="form   ">
-          <div className="form-container md:w-[70%]">
+          <div className="form-container md:w-[75%]">
             {/* <div className="">{formtSteps[step]}</div> */}
             <div className="body">
-              <form action="">{PageDisplay()}</form>
+              <form action="">
+                {PageDisplay()}
+
+                {/* <button
+                  type="Submit"
+                  className="px-12 py-1 md:px-14 md:py-2 bg-[#FFFFFF] text-black border rounded text-[22px] md:text-[25px] font-semibold md:font-bold"
+                >
+                  OK
+                </button> */}
+              </form>
             </div>
           </div>
 
           <div className="footer absolute bottom-0 right-0 mb-[3rem] mr-[2rem] md:mr-[9rem]">
             <div className="flex gap-[1px] float-right">
               <div className="flex justify-center items-center">
-                {step === formtSteps.length - 1 ? (
+                {step === formtSteps.length ? (
                   ""
                 ) : (
                   <button
@@ -169,9 +207,7 @@ const JoinGrothaaPage = () => {
               </div>
               <div className="flex justify-center items-center">
                 {step === formtSteps.length - 1 ? (
-                  <button className="px-6 py-1 md:px-8 md:py-2 border bg-[#FFFFFF] text-black">
-                    OK
-                  </button>
+                  ""
                 ) : (
                   <button
                     className="px-5 py-3 md:px-9 md:py-4   border rounded-r-lg bg-[#FFFFFF]"

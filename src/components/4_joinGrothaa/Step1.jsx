@@ -21,6 +21,7 @@ const Step1 = ({ formData, setFormData, step, setStep }) => {
           onChange={(event) =>
             setFormData({ ...formData, name: event.target.value })
           }
+          name={formData.name}
         />
       </div>
       <div className="flex gap-5 justify-start items-center py-1">
