@@ -31,8 +31,8 @@ const Header = () => {
                 to="/our-story"
                 className={({ isActive }) =>
                   isActive
-                    ? " py-2 cursor-pointer text-[#fbd109]"
-                    : " py-2 cursor-pointer  "
+                    ? " py-2 cursor-pointer text-[#fbd109] font-semibold"
+                    : " py-2 cursor-pointer  font-semibold"
                 }
               >
                 Our Story
@@ -44,8 +44,8 @@ const Header = () => {
                 to="/about-us"
                 className={({ isActive }) =>
                   isActive
-                    ? " py-2 cursor-pointer text-[#fbd109]"
-                    : " py-2 cursor-pointer  "
+                    ? " py-2 cursor-pointer text-[#fbd109] font-semibold"
+                    : " py-2 cursor-pointer  font-semibold"
                 }
               >
                 About Us
@@ -57,8 +57,8 @@ const Header = () => {
                 to="/join-grothaa"
                 className={({ isActive }) =>
                   isActive
-                    ? " py-2 cursor-pointer text-[#fbd109]"
-                    : " py-2 cursor-pointer  "
+                    ? " py-2 cursor-pointer text-[#fbd109] font-semibold"
+                    : " py-2 cursor-pointer  font-semibold"
                 }
               >
                 Join Grothaa
