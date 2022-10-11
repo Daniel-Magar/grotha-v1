@@ -167,7 +167,11 @@ const JoinGrothaaPage = () => {
                   ""
                 ) : (
                   <button
-                    className="px-5 py-3 md:px-9 md:py-4 border rounded-l-lg bg-[#FFFFFF]"
+                    className={`${
+                      step == 0
+                        ? "px-5 py-3 md:px-9 md:py-4 border border-[#A7A7A7] rounded-l-lg bg-[#A7A7A7] cursor-not-allowed"
+                        : "px-5 py-3 md:px-9 md:py-4 border rounded-l-lg bg-[#FFFFFF]"
+                    }`}
                     onClick={() => {
                       setStep((currStep) => currStep - 1);
                     }}
@@ -178,11 +182,15 @@ const JoinGrothaaPage = () => {
                 )}
               </div>
               <div className="flex justify-center items-center">
-                {step === formtSteps.length - 1 ? (
+                {step === formtSteps.length ? (
                   ""
                 ) : (
                   <button
-                    className="px-5 py-3 md:px-9 md:py-4   border rounded-r-lg bg-[#FFFFFF]"
+                    className={`  ${
+                      step == formtSteps.length - 1
+                        ? " border border-[#A7A7A7] px-5 py-3 md:px-9 md:py-4 rounded-r-lg  bg-[#A7A7A7] cursor-not-allowed"
+                        : " px-5 py-3 md:px-9 md:py-4   border rounded-r-lg bg-[#FFFFFF]"
+                    } `}
                     onClick={() => {
                       setStep((currStep) => currStep + 1);
                     }}
