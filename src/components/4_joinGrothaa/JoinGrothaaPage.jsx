@@ -147,7 +147,7 @@ const JoinGrothaaPage = () => {
           <div className="form-container md:w-[75%]">
             {/* <div className="">{formtSteps[step]}</div> */}
             <div className="body">
-              <form action="">
+              <form action="" className="h-[400px] min-h-[300px] ">
                 {PageDisplay()}
 
                 {/* <button

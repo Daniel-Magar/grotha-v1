@@ -10,7 +10,7 @@ import Krishna from "../../assets/img/landingPage/team-7.png";
 const OurStoryPage = () => {
   return (
     <div className="bg-black text-white min-h-screen flex justify-center items-center text-3xl pt-[150px]">
-      <div className="flex justify-center items-center gap-5 flex-wrap  min-h-[80vh]  transition-all w-[85%]">
+      <div className="flex justify-center items-center gap-5 flex-wrap  min-h-[80vh]  transition-all w-[85%] fade-in-text">
         <div className=" flex-1 min-w-[150px]">
           <img
             src={Ranganathan}

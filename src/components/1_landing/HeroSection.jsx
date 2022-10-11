@@ -7,10 +7,10 @@ const HeroSection = () => {
   return (
     <div
       id="hero-section"
-      className="h-screen bg-black text-white flex justify-center items-center"
+      className="h-screen bg-black text-white flex justify-center items-center "
     >
       {/* landing contents */}
-      <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between w-[80%] items-center  ">
+      <div className="flex flex-col md:flex-row-reverse gap-5 md:gap-10 justify-between w-[80%] items-center  fade-in-text">
         <div className=" flex-[0.4]">
           <img src={Pencil} alt=".." className=" ml-auto xl:w-[70%]" />
         </div>

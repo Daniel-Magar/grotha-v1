@@ -24,7 +24,7 @@ const Step1 = ({ formData, setFormData, step, setStep }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full fade-in-text">
       <div>
         <p className="text-[20px] md:text-[23px] font-semibold">
           Hello/Namaste, what's your name, mobile number, email & company

@@ -111,7 +111,7 @@ const Step10 = ({ formData, setFormData, setStep }) => {
   };
 
   return (
-    <div className="w-full ">
+    <div className="w-full fade-in-text">
       {showMsg ? (
         <span className="text-green-400 text-[16px] fade-in-text">
           {successMsg}

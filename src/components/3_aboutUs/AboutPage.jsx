@@ -6,7 +6,7 @@ import InstaGramLogo from "../../assets/img/aboutUsPage/instagram.png";
 const AboutPage = () => {
   return (
     <div className="h-screen  bg-black text-white flex flex-col justify-center items-center ">
-      <div className=" w-[75%] sm:w-[70%] md:w-[85%] flex flex-col md:flex-row-reverse md:justify-between md:items-center ">
+      <div className=" w-[75%] sm:w-[70%] md:w-[85%] flex flex-col md:flex-row-reverse md:justify-between md:items-center fade-in-text">
         <div className="md:flex-[0.3]">
           <img
             src={GrowthaaLogo}

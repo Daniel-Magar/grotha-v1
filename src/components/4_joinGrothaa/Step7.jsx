@@ -13,7 +13,7 @@ const Step7 = ({ formData, setFormData, setStep }) => {
     console.log(isValid);
   };
   return (
-    <div className="w-full md:ml-[8rem] lg:ml-[10rem]">
+    <div className="w-full md:ml-[8rem] lg:ml-[10rem] fade-in-text">
       <div className="flex flex-col lg:flex-row justify-start items-start gap-8">
         <div className="flex flex-col lg:flex-row ">
           <div className="text-[20px] md:text-[23px] font-semibold"> 7.</div>

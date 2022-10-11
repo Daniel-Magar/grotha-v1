@@ -77,7 +77,7 @@ const Step8 = ({ formData, setFormData, setStep }) => {
   };
   return (
     <div>
-      <div className="w-full md:ml-[8rem] lg:ml-[10rem]">
+      <div className="w-full md:ml-[8rem] lg:ml-[10rem] fade-in-text">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col ">
             <div className="text-[20px] md:text-[23px] font-semibold ">8.</div>
