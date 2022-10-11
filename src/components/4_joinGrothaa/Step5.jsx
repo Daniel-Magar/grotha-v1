@@ -10,6 +10,16 @@ const Step5 = ({ setStep, formData, setFormData }) => {
 
   const [finalData, setFinalData] = useState([]);
 
+  const name = React.useRef("");
+  const [isValid, setIsValid] = useState(true);
+
+  const nameBlurData = (name) => {
+    console.log("name", name);
+
+    setIsValid(!!name);
+    console.log(isValid);
+  };
+
   useEffect(() => {
     setUsers(userData);
   }, []);
@@ -25,6 +35,7 @@ const Step5 = ({ setStep, formData, setFormData }) => {
     );
 
     setUsers(selectedData);
+    setIsValid(true);
   }
 
   const [groupUsers, setGroupUsers] = useState([]);
@@ -37,7 +48,7 @@ const Step5 = ({ setStep, formData, setFormData }) => {
     setGroupUsers(newArray);
     setFormData({
       ...formData,
-      company_business_model2: newArray,
+      company_business_model2: JSON.stringify(newArray),
     });
   }, [users]);
 
@@ -105,25 +116,32 @@ const Step5 = ({ setStep, formData, setFormData }) => {
                       <div className="w-full text-[12px] md:text-[20px] lg:text-[22px] font-semibold">
                         {data.value}
                       </div>
-                      {/* <div
-                      className={`${
-                        isClicked === true
-                          ? "bg-red-600 text-[16px] md:text-[22px]"
-                          : "text-[16px] md:text-[22px]"
-                      }`}
-                    >
-                      Checked
-                    </div> */}
                     </div>
                   </div>
                 ))}
               </div>
+              {!isValid && (
+                <span className="text-[16px] text-yellow-500 fade-in-text">
+                  Please select 1 to 2 choice!
+                </span>
+              )}
               <div className="flex gap-5 justify-start items-center py-1 mt-8">
                 <button
                   type="Submit"
                   className="px-12 py-1 md:px-14 md:py-2 bg-[#FFFFFF] text-black border rounded text-[22px] md:text-[25px] font-semibold md:font-bold"
-                  onClick={() => {
-                    setStep((currStep) => currStep + 1);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(
+                      "checking comp business model 2",
+                      formData.company_business_model2
+                    );
+                    if (formData.company_business_model2 === "[]") {
+                      setIsValid(!isValid);
+                    } else {
+                      setIsValid(true);
+
+                      setStep((currStep) => currStep + 1);
+                    }
                   }}
                 >
                   OK

@@ -30,6 +30,16 @@ const Step6 = ({ formData, setFormData, setStep }) => {
 
   const [finalData, setFinalData] = useState([]);
 
+  const name = React.useRef("");
+  const [isValid, setIsValid] = useState(true);
+
+  const nameBlurData = (name) => {
+    console.log("name", name);
+
+    setIsValid(!!name);
+    console.log(isValid);
+  };
+
   useEffect(() => {
     setUsers(userData);
   }, []);
@@ -45,6 +55,7 @@ const Step6 = ({ formData, setFormData, setStep }) => {
     );
 
     setUsers(selectedData);
+    setIsValid(true);
   }
 
   const [groupUsers, setGroupUsers] = useState([]);
@@ -57,7 +68,7 @@ const Step6 = ({ formData, setFormData, setStep }) => {
     setGroupUsers(newArray);
     setFormData({
       ...formData,
-      revenue_stream: newArray,
+      revenue_stream: JSON.stringify(newArray),
     });
   }, [users]);
 
@@ -120,25 +131,32 @@ const Step6 = ({ formData, setFormData, setStep }) => {
                       <div className="w-full text-[12px] md:text-[20px] lg:text-[22px] font-semibold">
                         {data.value}
                       </div>
-                      {/* <div
-                      className={`${
-                        isClicked === true
-                          ? "bg-red-600 text-[16px] md:text-[22px]"
-                          : "text-[16px] md:text-[22px]"
-                      }`}
-                    >
-                      Checked
-                    </div> */}
                     </div>
                   </div>
                 ))}
               </div>
+              {!isValid && (
+                <span className="text-[16px] text-yellow-500 fade-in-text">
+                  Please select 1 to 2 choice!
+                </span>
+              )}
               <div className="flex gap-5 justify-start items-center py-1 mt-8">
                 <button
                   type="Submit"
                   className="px-12 py-1 md:px-14 md:py-2 bg-[#FFFFFF] text-black border rounded text-[22px] md:text-[25px] font-semibold md:font-bold"
-                  onClick={() => {
-                    setStep((currStep) => currStep + 1);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(
+                      "checking comp business model 2",
+                      formData.revenue_stream
+                    );
+                    if (formData.revenue_stream === "[]") {
+                      setIsValid(!isValid);
+                    } else {
+                      setIsValid(true);
+
+                      setStep((currStep) => currStep + 1);
+                    }
                   }}
                 >
                   OK

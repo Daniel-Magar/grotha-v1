@@ -18,6 +18,15 @@ const Step8 = ({ formData, setFormData, setStep }) => {
     setUsers(userData);
   }, []);
 
+  const name = React.useRef("");
+  const [isValid, setIsValid] = useState(true);
+
+  const nameBlurData = (name) => {
+    console.log("name", name);
+
+    setIsValid(!!name);
+    console.log(isValid);
+  };
   // useEffect(() => {
   //   console.log(selected);
   // }, [selected]);
@@ -29,6 +38,7 @@ const Step8 = ({ formData, setFormData, setStep }) => {
     );
 
     setUsers(selectedData);
+    setIsValid(true);
   }
 
   const [groupUsers, setGroupUsers] = useState([]);
@@ -37,11 +47,12 @@ const Step8 = ({ formData, setFormData, setStep }) => {
     var newArray = users.filter(function (el) {
       return el.isChecked === true;
     });
-    console.log(newArray);
+    console.log("New Array!!!", newArray?.choice);
     setGroupUsers(newArray);
+
     setFormData({
       ...formData,
-      funding_details: newArray,
+      funding_details: JSON.stringify(newArray),
     });
   }, [users]);
 
@@ -104,25 +115,29 @@ const Step8 = ({ formData, setFormData, setStep }) => {
                       <div className="w-full text-[12px] md:text-[20px] lg:text-[22px] font-semibold">
                         {data.value}
                       </div>
-                      {/* <div
-                      className={`${
-                        isClicked === true
-                          ? "bg-red-600 text-[16px] md:text-[22px]"
-                          : "text-[16px] md:text-[22px]"
-                      }`}
-                    >
-                      Checked
-                    </div> */}
                     </div>
                   </div>
                 ))}
               </div>
+              {!isValid && (
+                <span className="text-[16px] text-yellow-500 fade-in-text">
+                  Please select 1 to 2 choice!
+                </span>
+              )}
               <div className="flex gap-5 justify-start items-center py-1 mt-6">
                 <button
                   type="Submit"
                   className="px-12 py-1 md:px-14 md:py-2 bg-[#FFFFFF] text-black border rounded text-[22px] md:text-[25px] font-semibold md:font-bold"
-                  onClick={() => {
-                    setStep((currStep) => currStep + 1);
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    if (formData.funding_details === "[]") {
+                      setIsValid(!isValid);
+                    } else {
+                      setIsValid(true);
+
+                      setStep((currStep) => currStep + 1);
+                    }
                   }}
                 >
                   OK

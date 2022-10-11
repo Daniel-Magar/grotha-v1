@@ -30,12 +30,6 @@ const JoinGrothaaPage = () => {
   ];
 
   const [formData, setFormData] = useState({
-    // step1: {
-    //   name: "John Doe",
-    //   mobile_no: "7898787676",
-    //   emial: "abc@gmail.com",
-    //   company: "abc",
-    // },
     name: "",
     company_descp: "",
     socialnetwork: "",
@@ -50,28 +44,6 @@ const JoinGrothaaPage = () => {
   useEffect(() => {
     console.log("From All", formData);
   }, [formData]);
-
-  // const form = useRef();
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs
-  //     .sendForm(
-  //       "service_nm433gh",
-  //       "template_eqwgxol",
-  //       form.current,
-  //       "q6yVnf9mQo16AMr9k"
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text);
-  //       },
-  //       (error) => {
-  //         console.log(error.text);
-  //       }
-  //     );
-  //   e.target.reset();
-  // };
 
   const PageDisplay = () => {
     if (step == 0) {
